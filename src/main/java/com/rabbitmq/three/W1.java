@@ -26,7 +26,7 @@ public class W1 {
 			System.out.println("接收到消息：" + m);
 			//消息标记tag，false代表只应答接收到的那个传递的消息，true为应答所有消息包括传递过来的消息
 			channel.basicAck(message.getEnvelope().getDeliveryTag(),false);
-		};
+		}; 
 		CancelCallback cancelCallback = (consumerTag) -> {
 			System.out.println("线程二接收消息失败：" + consumerTag);
 		};
