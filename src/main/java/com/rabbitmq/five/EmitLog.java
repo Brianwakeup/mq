@@ -18,11 +18,11 @@ public class EmitLog {
 
 	public static void main(String[] args) throws IOException {
 		Channel channel = RabbitMqUtil.getChannel();
-		channel.exchangeDeclare(EXCHANGENAME,"fanout");
+		channel.exchangeDeclare(EXCHANGENAME,"topic");
 		Scanner scanner = new Scanner(System.in);
 		while (scanner.hasNext()) {
 			String next = scanner.next();
-			channel.basicPublish(EXCHANGENAME,"",null,next.getBytes());
+			channel.basicPublish(EXCHANGENAME,"wei.*",null,next.getBytes());
 		}
 	}
 }

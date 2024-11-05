@@ -24,9 +24,9 @@ public class ByReciveLogs {
 	//将获取到的消息存储到磁盘
 	public static void main(String[] args) throws IOException {
 		Channel channel = RabbitMqUtil.getChannel();
-		channel.exchangeDeclare(EXCHANGENAME,"fanout");
+		channel.exchangeDeclare(EXCHANGENAME,"topic");
 		String queue = channel.queueDeclare().getQueue();
-		channel.queueBind(queue,EXCHANGENAME,"");
+		channel.queueBind(queue,EXCHANGENAME,"brian.wei");
 		System.out.println("等待接收消息，将接收到的消息写入到文件");
 		DeliverCallback deliverCallback = (consumerTag,message) ->{
 			//将消息写入到文件
