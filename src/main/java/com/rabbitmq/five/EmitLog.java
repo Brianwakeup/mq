@@ -22,7 +22,7 @@ public class EmitLog {
 		Scanner scanner = new Scanner(System.in);
 		while (scanner.hasNext()) {
 			String next = scanner.next();
-			channel.basicPublish(EXCHANGENAME,"wei.*",null,next.getBytes());
+			channel.basicPublish(EXCHANGENAME,"wei.brian",null,next.getBytes());
 		}
 	}
 }

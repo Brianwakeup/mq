@@ -26,7 +26,7 @@ public class ByReciveLogs {
 		Channel channel = RabbitMqUtil.getChannel();
 		channel.exchangeDeclare(EXCHANGENAME,"topic");
 		String queue = channel.queueDeclare().getQueue();
-		channel.queueBind(queue,EXCHANGENAME,"brian.wei");
+		channel.queueBind(queue,EXCHANGENAME,"brian.*");
 		System.out.println("等待接收消息，将接收到的消息写入到文件");
 		DeliverCallback deliverCallback = (consumerTag,message) ->{
 			//将消息写入到文件

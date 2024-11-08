@@ -24,7 +24,7 @@ public class ReciveLogs {
 		channel.exchangeDeclare(EXCHANGENAME,"topic");
 		//声明一个临时队列，当消费者断开连接时，队列就会消失
 		String queue = channel.queueDeclare().getQueue();
-		channel.queueBind(queue,EXCHANGENAME,"wei.brian");
+		channel.queueBind(queue,EXCHANGENAME,"wei.*");
 		//开启消息接收确认
 		channel.confirmSelect();
 		//消息异步确认
